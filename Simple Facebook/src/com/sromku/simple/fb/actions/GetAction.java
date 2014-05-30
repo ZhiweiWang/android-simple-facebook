@@ -118,7 +118,7 @@ public class GetAction<T> extends AbstractAction {
 	 */
 	protected T processResponse(Response response) {
 		Type type = mOnActionListener.getGenericType();
-		return Utils.convert(response, type);
+		return Utils.<T>convert(response, type);
 	}
 
 	void runRequest(Request request) {
