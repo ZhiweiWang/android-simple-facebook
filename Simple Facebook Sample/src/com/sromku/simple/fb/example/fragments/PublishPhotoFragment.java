@@ -18,7 +18,7 @@ import com.sromku.simple.fb.listeners.OnPublishListener;
 
 public class PublishPhotoFragment extends BaseFragment {
 
-	private final static String EXAMPLE = "Publish photo";
+	private final static String EXAMPLE = "Publish photo - no dialog";
 
 	private TextView mResult;
 	private Button mButton;
@@ -44,7 +44,7 @@ public class PublishPhotoFragment extends BaseFragment {
 
 				// set privacy
 				Privacy privacy = new Privacy.Builder()
-					.setPrivacySettings(PrivacySettings.SELF)
+					.setPrivacySettings(PrivacySettings.ALL_FRIENDS)
 					.build();
 
 				// create Photo instance and add some properties
@@ -55,7 +55,7 @@ public class PublishPhotoFragment extends BaseFragment {
 					.setPrivacy(privacy)
 					.build();
 
-				SimpleFacebook.getInstance().publish(photo, new OnPublishListener() {
+				SimpleFacebook.getInstance().publish(photo, false, new OnPublishListener() {
 
 					@Override
 					public void onException(Throwable throwable) {
